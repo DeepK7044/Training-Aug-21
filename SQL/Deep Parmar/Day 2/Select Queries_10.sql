@@ -2,6 +2,6 @@
 
 --Basic Select Queries:
 
---[10] Write a query to get all employee details from the employee table order by FirstName, descending.
+--[10] Write a query to get unique department ID from Employees table
 
-SELECT * FROM Employees ORDER BY FirstName DESC
+SELECT DISTINCT DepartmentID FROM Employees

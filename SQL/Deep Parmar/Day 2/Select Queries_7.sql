@@ -2,6 +2,6 @@
 
 --Basic Select Queries:
 
---[7] Write a query to get the names (FirstName, LastName), Salary, PF of all the Employees (PF is calculated as 12% of salary).
+--[7] Get employee details from Employees table whose Salary between 5000 and 8000
 
-SELECT FirstName, LastName, Salary, (Salary * 0.12) AS PF FROM employees;
+SELECT * FROM Employees WHERE Salary BETWEEN 5000 AND 8000

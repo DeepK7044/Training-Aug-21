@@ -2,6 +2,6 @@
 
 --Basic Select Queries:
 
---[11] Write a query to get the EmployeeID, names (FirstName, LastName), salary in ascending order of salary.
+--[11] Write a query to get all employee details from the employee table order by FirstName, descending.
 
-SELECT EmployeeID,(FirstName +' ' + LastName),Salary AS names FROM Employees ORDER BY Salary ASC
+SELECT * FROM Employees ORDER BY FirstName DESC

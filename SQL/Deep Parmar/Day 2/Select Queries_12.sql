@@ -2,6 +2,6 @@
 
 --Basic Select Queries:
 
---[12] Select TOP 2 salary from employee table
+--[12] Write a query to get the EmployeeID, names (FirstName, LastName), salary in ascending order of salary.
 
-SELECT TOP(2) Salary FROM Employees
+SELECT EmployeeID,(FirstName +' ' + LastName),Salary AS names FROM Employees ORDER BY Salary ASC

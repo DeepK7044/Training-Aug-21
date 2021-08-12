@@ -2,6 +2,6 @@
 
 --Basic Select Queries:
 
---[9] Write a query to get unique department ID from Employees table
+--[9] Get employee details from Employees table whose FirstName starts with ‘N’
 
-SELECT DISTINCT DepartmentID FROM Employees
+SELECT * FROM Employees WHERE FirstName LIKE 'N%'; 
