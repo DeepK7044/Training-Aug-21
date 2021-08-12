@@ -15,11 +15,12 @@ FirstName VARCHAR(20) NOT NULL,
 LastName VARCHAR(20) NOT NULL, 
 Age TINYINT NOT NULL CONSTRAINT ChkAge CHECK(Age > 20),                                                              -->>TINY INT DATATYPE USE FOR CONSUME LESS SPACE
 Email VARCHAR(25) NOT NULL CONSTRAINT ChkEmail CHECK(Email LIKE '%@gmail.com'), 
-PhoneNumber NUMERIC(10) NOT NULL CONSTRAINT ChkPhoneNumber CHECK(PhoneNumber BETWEEN 0000000001 AND 9999999999),
+PhoneNumber VARCHAR(10) NOT NULL CONSTRAINT ChkPhoneNumber CHECK(PhoneNumber LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'),
 Emp_Address VARCHAR(15) NOT NULL,
 Emp_Address2 VARCHAR(15) CONSTRAINT ChkAddress2 DEFAULT ' ' ,
-Commission DECIMAL(2,2) CONSTRAINT ChkCommission UNIQUE	
+Commission DECIMAL(2,2)  
 )
+
 
 CREATE TABLE inventory
 (
@@ -43,8 +44,8 @@ SALEqty SMALLINT,
 
 INSERT INTO business_employees (FirstName,LastName,Age,Email,PhoneNumber,Emp_Address,Commission)
 VALUES
-('DEEP','PARMAR',21,'parmardeep2018@gmail.com','8320822426','Ahmedabad',1),
-('KAMLESH','PARMAR',45,'PARMAR1974@gmail.com','9999084266','Ahmedabad',7);
+('DEEP','PARMAR',21,'parmardeep2018@gmail.com','8320822426','Ahmedabad',0.2),
+('KAMLESH','PARMAR',45,'PARMAR1974@gmail.com','9999084267','Ahmedabad',0.7);
 
 INSERT INTO inventory (Iteam_Name,Iteam_Price,Iteam_Qty)
 VALUES('RAM',2500,2),
@@ -52,14 +53,15 @@ VALUES('RAM',2500,2),
 
 INSERT INTO sales (Emp_No,Item_No,SALEqty)
 VALUES
-(13,1,5),
-(14,2,4)
+(1,1,5),
+(2,2,4)
 
 
 --SELECT QUEARY 
 SELECT * FROM business_employees
 SELECT * FROM inventory
 SELECT * FROM sales
+
 
 
 
