@@ -12,19 +12,45 @@ USE TraineeAug
 
 --Create Table 
 
-CREATE TABLE employees ( 
-Employee_Id INT NOT NULL PRIMARY KEY, 
-FirstName varchar(20) NOT NULL, 
-LastName varchar(20) NOT NULL, 
-Email varchar(25) NOT NULL, 
-PhoneNumber varchar(10) NOT NULL, 
-Hire_Date date NOT NULL, 
-Job_Id INT , 
-Salary decimal(8,2) NOT NULL, 
-Commission decimal(2,2) , 
-Manager_Id decimal(6,0) NOT NULL, 
-Department_Id NUMERIC(10)
-)
+CREATE TABLE [dbo].[employees](
+	[Employee_Id] [int] NOT NULL,
+	[FirstName] [varchar](20) NOT NULL,
+	[LastName] [varchar](20) NOT NULL,
+	[Email] [varchar](25) NOT NULL,
+	[PhoneNumber] [varchar](10) NOT NULL,
+	[Hire_Date] [date] NOT NULL,
+	[Job_Id] [int] NULL,
+	[Salary] [decimal](8, 2) NOT NULL,
+	[Commission] [decimal](2, 2) NULL,
+	[Manager_Id] [decimal](6, 0) NOT NULL,
+	[Department_Id] [numeric](10, 0) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Employee_Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[employees]  WITH CHECK ADD  CONSTRAINT [FK_employees_Department] FOREIGN KEY([Department_Id])
+REFERENCES [dbo].[Department] ([Department_Id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[employees] CHECK CONSTRAINT [FK_employees_Department]
+GO
+
+ALTER TABLE [dbo].[employees]  WITH CHECK ADD  CONSTRAINT [FK_employees_jobs] FOREIGN KEY([Job_Id])
+REFERENCES [dbo].[jobs] ([JobId])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[employees] CHECK CONSTRAINT [FK_employees_jobs]
+GO
+
+
+
 
 CREATE TABLE Department
 (
