@@ -51,6 +51,18 @@ SELECT dbo.ufn_Cal(2) AS Cube_of_Number
 
 ------------------Drop Function----------------------------------------
 DROP FUNCTION dbo.ufn_Cal
+--------------------default-------------------
+CREATE FUNCTION Age_In_YEAR (
+   @birth_date DATETIME,
+   @Today DATETIME = NULL
+   )
+   RETURNS INT
+AS BEGIN
+   IF @Today IS NULL SET @Today = GETDATE()
+   RETURN DATEDIFF(YY, @birth_date, @Today)
+END
+
+SELECT dbo.Age_In_YEAR('2000-01-14',NULL)
 
 ------------------Inline Table-Valued Functions------------------------------
 CREATE FUNCTION Sales.ufn_SalesByStore (@storeid int)  
