@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Exercise1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container border mt-5">
+        <!-- Accept three numbers from the user using prompt, find the greater of these the numbers and do the sum of that numbers which are greater than 40. -->
+        <h4 class="mt-5 text-muted">Click Button To Add Three number and the sum of that numbers which are greater than
+            40.</h4>
+        <button type="button" class="btn btn-outline-primary mt-3" onclick="addition()">
+            Click Here
+        </button>
+        <p id="sum" class="text-success fs-4 mt-3"></p>
+        <p id="less" class="text-danger fs-4 mt-3"></p>
+    </div>
+    <script>
+        function addition() {
+            var num = new Array(3);
+            var sum = 0;
+
+            for (var i = 0; i < num.length; i++) 
+            {
+                // Taking All Input usinf alert box
+                num[i] = parseInt(prompt("Please Enter " + (i + 1) + " Number:"));
+                if (num[i] > 40) 
+                {
+                    sum += num[i];
+                }
+
+                if (i == (num.length-1)) 
+                {
+                    // find the larger number
+                    if(num[i-2]>num[i-1])
+                    {
+                        if(num[i-2]>num[i])
+                        {
+                            alert("Number "+((i-2)+1)+" large")
+                        }
+                        else
+                        {
+                            alert("Number "+((i)+1)+" large")
+                        }
+                    }
+                    else if(num[i-1]>num[i])
+                    {
+                        alert("Number "+(i)+" large")
+                    }
+                    else{
+                        alert("Number "+(i+1)+" large")
+                    }
+                    
+                    // if all number is less than 40 then
+
+                    if (num[i] <= 40 && num[i - 1] <= 40 && num[i - 2] <= 40) {
+                        document.getElementById("less").innerHTML = "All Element is Less Than 40";
+                    }
+                }
+            }
+            document.getElementById("sum").innerHTML = "Total Sum is: " + sum;
+        }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
