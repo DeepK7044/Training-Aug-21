@@ -1,31 +1,49 @@
-function checkDeatil(empName,Id,age,PhoneNo)
-{
-    var EmpName=empName.value
-    var regexp=/^[0-9]{5}$/
-    var id=Id.value
-    if(regexp.test(id)==false)
-    {
-        alert("Please Enter Correct Employee Id");
-        return;
-    }
+function checkDeatil(Emp_Id, Emp_Name, Emp_Age, Emp_Designation, Emp_Salary, Emp_Gmail, Emp_Date, Emp_PhoneNo) 
+        {
+            var age=parseInt(Emp_Age);
+             var regid=/[A-z0-9]{5,}/g.test(Emp_Id);
 
-    if(age<1 || age>200)
-    {
-        alert("Please Enter Correct Phone number");
-        return;
-    }
-    
-    var PhoneNo=document.getElementById("PhoneNo").value
-    if(PhoneNo.lenght<10)
-    {
-        alert("Please Enter Correct Phone number");
-        return;
-    }
+            if (!(/[A-z0-9]{5,}/g.test(Emp_Id))) 
+            {
+                alert("Please Entered Valid Employee Id");
+                return;
+            }
+            if (age < 1 || age > 150){
+                alert("Please Entered Valid Age Of Employee");
+                return;
+            }
+            if (Emp_PhoneNo.lenght > 10 || Emp_PhoneNo.lenght < 1) {
+                alert("Please Entered Valid Phone number");
+                return;
+            }
+            if(!isNaN(Emp_Designation))
+            {
+                alert("Please Entered Valid Designation");
+                return;
+            }
 
-    demoPage(EmpName)
-}
+            var Emp_Location = document.getElementById("EmpLocation").value;
 
-function demoPage(EmpName)
-{
-    document.getElementById("Ename").innerHTML=EmpName;
-}
+            if (document.getElementById("Male").checked) {
+                var Emp_Gender = "Male";
+            }
+            if (document.getElementById("Female").checked) {
+                var Emp_Gender = "Female";
+            }
+            if (document.getElementById("Other").checked) {
+                var Emp_Gender = "Female";
+            }
+
+            var newWindow = window.open();
+            newWindow.document.write('<h2 style="color:cadetblue;">Employee Details is :</h2>'
+                + "<b>Employee ID : </b>" + Emp_Id
+                + "<br><b>Employee Name : </b>" + Emp_Name
+                + "<br><b>Employee Age : </b>" + Emp_Age
+                + "<br><b>Employee Gender : </b>" + Emp_Gender
+                + "<br><b>Employee Designation : </b>" + Emp_Designation
+                + "<br><b>Employee Salary : </b>" + Emp_Salary
+                + "<br><b>Employee Location : </b>" + Emp_Location
+                + "<br><b>Employee Gmail_Id :</b>" + Emp_Gmail
+                + "<br><b>Employee Date Of Joining :</b>" + Emp_Date
+                + "<br><b>Employee PhoneNo :</b>" + Emp_PhoneNo);
+        }
