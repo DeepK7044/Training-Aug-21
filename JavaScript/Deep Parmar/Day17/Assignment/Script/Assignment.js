@@ -2,20 +2,25 @@ function checkDeatil(Emp_Id, Emp_Name, Emp_Age, Emp_Designation, Emp_Salary, Emp
         {
             var age=parseInt(Emp_Age);
              var regid=/[A-z0-9]{5,}/g.test(Emp_Id);
-
+            //Check id length is at least 5
             if (!(/[A-z0-9]{5,}/g.test(Emp_Id))) 
             {
                 alert("Please Entered Valid Employee Id");
                 return;
             }
+            //check age must be proper number
             if (age < 1 || age > 150){
                 alert("Please Entered Valid Age Of Employee");
                 return;
             }
+
+            // Here Check Emp_PhoneNo is lenght is 10
             if (Emp_PhoneNo.lenght > 10 || Emp_PhoneNo.lenght < 1) {
                 alert("Please Entered Valid Phone number");
                 return;
             }
+
+            //check DEsignation not a number
             if(!isNaN(Emp_Designation))
             {
                 alert("Please Entered Valid Designation");
@@ -24,6 +29,7 @@ function checkDeatil(Emp_Id, Emp_Name, Emp_Age, Emp_Designation, Emp_Salary, Emp
 
             var Emp_Location = document.getElementById("EmpLocation").value;
 
+            //check the which check box user can select
             if (document.getElementById("Male").checked) {
                 var Emp_Gender = "Male";
             }
@@ -34,6 +40,7 @@ function checkDeatil(Emp_Id, Emp_Name, Emp_Age, Emp_Designation, Emp_Salary, Emp
                 var Emp_Gender = "Female";
             }
 
+            //we Display Result in another window
             var newWindow = window.open();
             newWindow.document.write('<h2 style="color:cadetblue;">Employee Details is :</h2>'
                 + "<b>Employee ID : </b>" + Emp_Id
