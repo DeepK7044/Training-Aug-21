@@ -1,3 +1,4 @@
+<!-- Accept three numbers from the user using prompt, find the greater of these the numbers and do the sum of that numbers which are greater than 40. -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,58 +11,47 @@
 </head>
 
 <body>
-    <div class="container border mt-5">
-        <!-- Accept three numbers from the user using prompt, find the greater of these the numbers and do the sum of that numbers which are greater than 40. -->
-        <h4 class="mt-5 text-muted">Click Button To Add Three number and the sum of that numbers which are greater than
-            40.</h4>
-        <button type="button" class="btn btn-outline-primary mt-3" onclick="addition()">
+    <h4 style="height: 5vh; color:cadetblue; text-align:center" class="mt-5"> Accept numbers from the user using prompt, find the greater of these the numbers and do the sum of that numbers which are greater than 40. </h4>
+    <div class="container border w-25 mt-3">
+        <label class="my-3 fs-5 form-label text-muted">Please Enter how many numbers you want to add up</label>
+        <input type="number" class="form-control" name="number" placeholder="Enter Number" id="totalNum">
+
+        <button type="button" class="btn btn-outline-primary my-3" onclick="addition(totalNum.value)">
             Click Here
         </button>
+        <ul class="text-info" id="num_list"></ul>
+        <p id="largest_num" class="text-success fs-4 mt-3"></p>
         <p id="sum" class="text-success fs-4 mt-3"></p>
         <p id="less" class="text-danger fs-4 mt-3"></p>
     </div>
     <script>
-        function addition() {
-            var num = new Array(3);
+        function addition(number) {
+            var total_num = number;
+            var num = [];
             var sum = 0;
+            var count = 0;
+            var str="";
 
-            for (var i = 0; i < num.length; i++) 
-            {
+            for (var i = 0; i < total_num; i++) {
                 // Taking All Input usinf alert box
                 num[i] = parseInt(prompt("Please Enter " + (i + 1) + " Number:"));
-                if (num[i] > 40) 
-                {
+                if (num[i] > 40) {
                     sum += num[i];
+                    count++;
                 }
+                str += "<li>"+(i+1)+" Number is : "+ num[i] +"</li>";                                 
+            }
 
-                if (i == (num.length-1)) 
-                {
-                    // find the larger number
-                    if(num[i-2]>num[i-1])
-                    {
-                        if(num[i-2]>num[i])
-                        {
-                            alert("Number "+((i-2)+1)+" large")
-                        }
-                        else
-                        {
-                            alert("Number "+((i)+1)+" large")
-                        }
-                    }
-                    else if(num[i-1]>num[i])
-                    {
-                        alert("Number "+(i)+" large")
-                    }
-                    else{
-                        alert("Number "+(i+1)+" large")
-                    }
-                    
-                    // if all number is less than 40 then
+            // Display All Number that user Entered
+            document.getElementById("num_list").innerHTML=str;
 
-                    if (num[i] <= 40 && num[i - 1] <= 40 && num[i - 2] <= 40) {
-                        document.getElementById("less").innerHTML = "All Element is Less Than 40";
-                    }
-                }
+            // Find the larger number
+            var largest_num=num.sort(function(a,b) {return a-b});
+            document.getElementById("largest_num").innerHTML="Largest Number in given "+total_num+" number is : "+largest_num[num.length-1];
+
+            // If all element is less than 40 then count=0
+            if (count == 0) {
+                document.getElementById("less").innerHTML = "All Element is Less Than 40";
             }
             document.getElementById("sum").innerHTML = "Total Sum is: " + sum;
         }
