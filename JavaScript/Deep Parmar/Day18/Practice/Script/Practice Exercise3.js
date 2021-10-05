@@ -1,4 +1,5 @@
 //function that takes in a single parameter and returns a new promise. using setTimeout, after 500 milliseconds, the promise will either resolove or reject.
+
 function getstring(string_input) {
     return new Promise(function(resolve, reject)
     { 

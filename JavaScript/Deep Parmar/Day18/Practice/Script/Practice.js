@@ -1,5 +1,4 @@
 //Callback
-
 var student = [
     { Name: "Deep", Course: "JavaScript", Age: 21 },
     { Name: "Dhruvesh", Course: "Node JS", Age: 21 }

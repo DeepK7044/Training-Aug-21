@@ -1,3 +1,5 @@
+//  University of Mumbai needs to set an online exam for their students. For that they need to set a timer for three hours. After 3 hours exams should be finished.
+// Note: Use promises and callbacks 
 function exam_promise(err) {
     return new Promise(function (resolve, reject) {
         setTimeout(() => {
