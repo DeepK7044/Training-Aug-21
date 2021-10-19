@@ -2,45 +2,29 @@ $(document).ready(function() {
     //This Function Get User Details From Local Storage
     getUserInfo();
 
-    //Fetch Data From Menu.json File
-    $.getJSON("JSON/Menu.json", function(Menu, status) {
-        if (status == "success") {
-            localStorage.setItem("Menu", JSON.stringify(Menu));
-            localStorage.setItem("Bestsellers", JSON.stringify(Menu.Bestsellers));
-            localStorage.setItem("VegPizza", JSON.stringify(Menu.VegPizza));
-            localStorage.setItem("NonVegPizza", JSON.stringify(Menu.NonVegPizza));
-            localStorage.setItem("NewLaunches", JSON.stringify(Menu.NewLaunches));
-            localStorage.setItem("MealsCombos", JSON.stringify(Menu.MealsCombos));
-            localStorage.setItem("PizzaMania", JSON.stringify(Menu.PizzaMania));
-            localStorage.setItem("SpecialityChicken", JSON.stringify(Menu.SpecialityChicken));
-            localStorage.setItem("Sides", JSON.stringify(Menu.Sides));
-            localStorage.setItem("Beverages", JSON.stringify(Menu.Beverages));
-            localStorage.setItem("Dessert", JSON.stringify(Menu.Dessert));
+    var Data = localStorage.getItem("Menu");
+    if (Data == null) {
+        //Fetch Data From Menu.json File
+        $.getJSON("JSON/Menu.json", function(Menu, status) {
+            if (status == "success") {
+                localStorage.setItem("Menu", JSON.stringify(Menu));
+                localStorage.setItem("Bestsellers", JSON.stringify(Menu.Bestsellers));
+                localStorage.setItem("VegPizza", JSON.stringify(Menu.VegPizza));
+                localStorage.setItem("NonVegPizza", JSON.stringify(Menu.NonVegPizza));
+                localStorage.setItem("NewLaunches", JSON.stringify(Menu.NewLaunches));
+                localStorage.setItem("MealsCombos", JSON.stringify(Menu.MealsCombos));
+                localStorage.setItem("PizzaMania", JSON.stringify(Menu.PizzaMania));
+                localStorage.setItem("SpecialityChicken", JSON.stringify(Menu.SpecialityChicken));
+                localStorage.setItem("Sides", JSON.stringify(Menu.Sides));
+                localStorage.setItem("Beverages", JSON.stringify(Menu.Beverages));
+                localStorage.setItem("Dessert", JSON.stringify(Menu.Dessert));
 
-            var Bestsellers = JSON.parse(localStorage.getItem("Bestsellers"));
-            var VegPizza = JSON.parse(localStorage.getItem("VegPizza"));
-            var NonVegPizza = JSON.parse(localStorage.getItem("NonVegPizza"));
-            var NewLaunches = JSON.parse(localStorage.getItem("NewLaunches"));
-            var MealsCombos = JSON.parse(localStorage.getItem("MealsCombos"));
-            var PizzaMania = JSON.parse(localStorage.getItem("PizzaMania"));
-            var SpecialityChicken = JSON.parse(localStorage.getItem("SpecialityChicken"));
-            var Sides = JSON.parse(localStorage.getItem("Sides"));
-            var Beverages = JSON.parse(localStorage.getItem("Beverages"));
-            var Dessert = JSON.parse(localStorage.getItem("Dessert"));
-
-            //This Function can Display Different Categories Pizza
-            showPizzaData("#Bestsellers", Bestsellers);
-            showPizzaData("#VegPizza", VegPizza);
-            showPizzaData("#NonVegPizza", NonVegPizza);
-            showPizzaData("#NewLaunches", NewLaunches);
-            showOtherData("#MealsCombos", MealsCombos);
-            showPizzaData("#PizzaMania", PizzaMania);
-            showOtherData("#SpecialityChicken", SpecialityChicken);
-            showOtherData("#Sides", Sides);
-            showOtherData("#Beverages", Beverages);
-            showOtherData("#Dessert", Dessert);
-        }
-    });
+                PizzaDisplay();
+            }
+        });
+    } else {
+        PizzaDisplay();
+    }
 
     //This Function Calculate SubTotal And Show Dynamically
     Subtotal();
@@ -51,6 +35,32 @@ $(document).ready(function() {
 
 
 });
+
+//This Function Display Pizza Which is Fetch From Local Storage
+function PizzaDisplay() {
+    var Bestsellers = JSON.parse(localStorage.getItem("Bestsellers"));
+    var VegPizza = JSON.parse(localStorage.getItem("VegPizza"));
+    var NonVegPizza = JSON.parse(localStorage.getItem("NonVegPizza"));
+    var NewLaunches = JSON.parse(localStorage.getItem("NewLaunches"));
+    var MealsCombos = JSON.parse(localStorage.getItem("MealsCombos"));
+    var PizzaMania = JSON.parse(localStorage.getItem("PizzaMania"));
+    var SpecialityChicken = JSON.parse(localStorage.getItem("SpecialityChicken"));
+    var Sides = JSON.parse(localStorage.getItem("Sides"));
+    var Beverages = JSON.parse(localStorage.getItem("Beverages"));
+    var Dessert = JSON.parse(localStorage.getItem("Dessert"));
+
+    //This Function can Display Different Categories Pizza
+    showPizzaData("#Bestsellers", Bestsellers);
+    showPizzaData("#VegPizza", VegPizza);
+    showPizzaData("#NonVegPizza", NonVegPizza);
+    showPizzaData("#NewLaunches", NewLaunches);
+    showOtherData("#MealsCombos", MealsCombos);
+    showPizzaData("#PizzaMania", PizzaMania);
+    showOtherData("#SpecialityChicken", SpecialityChicken);
+    showOtherData("#Sides", Sides);
+    showOtherData("#Beverages", Beverages);
+    showOtherData("#Dessert", Dessert);
+}
 
 //This Function can Display The Pizza
 function showPizzaData(Id, Menu_arr) {

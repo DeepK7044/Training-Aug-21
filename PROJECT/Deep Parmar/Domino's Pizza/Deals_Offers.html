@@ -50,6 +50,7 @@
                 <div class="dropdown-menu">
                     <div class="dropdown-item"><i class="fs-4 me-3 fas fa-user-tie"></i> <span id="userName">UserName</span></div>
                     <div class="dropdown-item"><i class="fs-4  me-3 fas fa-phone-square-alt"></i> <span id="contactNumber">ContactNumber</span></div>
+                    <div class="dropdown-item" id="role"><i class="fs-3 fas fa-plus-circle"></i> <a href="#addOffer" data-bs-toggle="modal" class="d-inline text-dark">ADD OFFERS</a></div>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-item">
                         <a href="index_Login.html" onclick="clearUserData()" class="fs-5 text-muted text-decoration-none">
@@ -80,6 +81,43 @@
     </div>
 
 
+    <!-- Modal For Add New Offers -->
+    <div class="modal fade" id="addOffer" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">ADD OFFERS</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <form>
+                            <div class="mb-3">
+                                <label for="Offer Name" class="form-label fs-5">Offer Name</label>
+                                <input type="text" class="form-control" id="Offer_Name" placeholder="Offer Name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Offer Description" class="form-label fs-5">Offer Description</label>
+                                <input type="text" class="form-control" id="Offer_Description" placeholder="Description">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Offer image" class="form-label fs-5">Enter Offer Image Url :</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="src">URL :</span>
+                                    <input type="text" class="form-control" id="Offerimage">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-bs-dismiss="modal" onclick="AddOffer(Offer_Name.value,Offer_Description.value,Offerimage.value)" class="btn btn-success w-100">ADD</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Part -->
     <footer id="footer">
         <div id="main_footer_section" class="pt-5" style="font-size: 20px;">
             <div id="footer_section_1">
