@@ -284,6 +284,7 @@ function Subtotal() {
 
     } else {
         $(".subtotal_price").html(Total);
+        $(".Shopping_Cart").html("<img src='https://docs.google.com/uc?id=1zJlfJLNsi26xJ35d88Tb2UoTmAxYYEH0' width='100%' alt='Empty_cart'>")
         localStorage.setItem("Subtotal", Total);
     }
 }
