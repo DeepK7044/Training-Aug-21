@@ -24,9 +24,14 @@ console.log(sentence);
 console.log("-----Array--------");
 let list: number[] = [1, 2, 3];
 let list1: Array<number> = [4,5,6];
-list.concat(list1);
+var list3=list.concat(list1);
 console.log(list);
 console.log(list1);
+console.log(list3);
+
+list3.forEach(element => {
+  console.log(element);
+});
 
 console.log("-----Tuple--------");
 let x:[string,number,string];
