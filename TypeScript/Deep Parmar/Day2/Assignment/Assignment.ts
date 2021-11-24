@@ -48,6 +48,7 @@ function AddProduct(ProductData:Inventory):Inventory[]
     return ProductArr;
 }
 
+//For See All Products
 function DisplayAllProduct()
 {
     ProductArr.forEach(element => {
@@ -55,6 +56,7 @@ function DisplayAllProduct()
     });
 }
 
+//For Purchase Product
 function PurchaseProduct(Product_ID:number,Product_Quantity:number)
 {
     ProductArr.filter((Product,index,Array)=>
@@ -76,6 +78,7 @@ function PurchaseProduct(Product_ID:number,Product_Quantity:number)
     );
 }
 
+// For Reorder Inventory Product
 function Reorder(Product_ID:number,Product_Quantity:number)
 {
     ProductArr.filter((Product,index,array)=>{
@@ -88,7 +91,7 @@ function Reorder(Product_ID:number,Product_Quantity:number)
     });
 }
 
-
+// For Check Product Quantity
 function CheckQuantity()
 {
     ProductArr.filter((Product,index,array)=>{
@@ -104,6 +107,10 @@ function CheckQuantity()
     });
 }
 
+//1.Add Product Inventory Product
+//2.Display All Product Details
+//3.For Purchase Product
+//4.Check ProductQuantity is Less than 5 Or not. If ProductQuantity Lessthan 5 Then Reorder Product
 var Choice:number=2;
 
 switch (Choice) {
