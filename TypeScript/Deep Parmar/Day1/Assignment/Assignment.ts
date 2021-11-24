@@ -31,19 +31,23 @@ console.log(`ID Of 2rd Employee IS ${searchElement_ID}`);
 
 
 console.log("--------------Insert the employee--------------");
-
+function AddEmployee(employeeData:any)
+{
+    employee.push(employeeData);
+    employee.forEach(element => {
+    console.log(element);});
+}
 var NewEmployee={"ID":6,"FirstName":"Ramesh","LastName":"Patel","Address":"Gokuldham Society,Vadodra,Gujrat","Salary":30000}
-employee.push(NewEmployee);
-employee.forEach(element => {
-    console.log(element);
-});
+AddEmployee(NewEmployee);
 
 console.log("--------------Delete the employee--------------");
-
-employee.pop();
-employee.forEach(element => {
-    console.log(element);
-});
+function DeleteEmployee()
+{
+    employee.pop();
+    employee.forEach(element => {
+    console.log(element);});
+}
+DeleteEmployee();
 
 // Create one more array emp and join the value with above array. 
 console.log("--------join Array-----------------");
@@ -58,7 +62,9 @@ for (var item of employee) {
 // When display list combine firstname and lastname as fullname, From the address field flatnumber,city,state and should be splited.
 var emptyArray:(any)[]=[];
 for (var item of employee) {
-    emptyArray.push({"ID":item.ID,"Name":item.FirstName+" "+item.LastName,"Address":item.Address.split(","),"Salary":item.Salary,"PF":item.Salary * 0.12})
+    var EmployeeAddress=item.Address.split(",");
+    emptyArray.push({"ID":item.ID,"Name":item.FirstName+" "+item.LastName,"Flatnumber":EmployeeAddress[0]
+                    ,"city":EmployeeAddress[1],"state":EmployeeAddress[2],"Salary":item.Salary,"PF":item.Salary * 0.12});
 }
 
 emptyArray.forEach(element => {
