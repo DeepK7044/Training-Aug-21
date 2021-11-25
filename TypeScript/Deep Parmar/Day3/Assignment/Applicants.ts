@@ -41,13 +41,14 @@ export let AllApplicants:Applicants[]=
 
 export function CheckAppliedVacancyValid(Id:number):boolean
 {
+    var status:boolean;
     vacancies.AllVacancies.filter((Vacancy,index,array) => {
         if(Vacancy.ID==Id)
         {
-            return true;
+            status= true;
         }
     });
-    return false;
+    return status;
 }
 
 
@@ -56,13 +57,13 @@ export function AddApplicant(ApplicantId:number,ApplicantName:string,EmailAddres
     ,PhoneNumber:number,PassoutYear:number,Qualification:string
     ,Skills:string,Experience:number,AppliedVacancyId:number,IsSelected:boolean)
 {
-    if(CheckAppliedVacancyValid(AppliedVacancyId))
+    var status:boolean=CheckAppliedVacancyValid(AppliedVacancyId);
+    if(status)
     {
         var ApplicantObj=new Applicants(ApplicantId,ApplicantName,EmailAddress,PhoneNumber
                                         ,PassoutYear,Qualification,Skills,Experience,AppliedVacancyId,IsSelected);
         
-        AllApplicants.push(ApplicantObj);
-        DisplayApplicants();                                    
+        AllApplicants.push(ApplicantObj);                                  
     }
     else
     {
@@ -75,6 +76,6 @@ export function AddApplicant(ApplicantId:number,ApplicantName:string,EmailAddres
 export function DisplayApplicants()
 {
     AllApplicants.forEach(element => {
-        console.log(AllApplicants);
+        console.log(element);
     });
 }

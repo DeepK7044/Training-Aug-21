@@ -43,7 +43,6 @@ export function AddVacancy(Id:number,TechnologyName:string,PassoutYearRequire:nu
         var VacancyObj=new Vacancies(Id,TechnologyName,PassoutYearRequire,QualificationRequired,ExperienceRequired,
                                      TotalVacancies,YearlyPackage,IsStatus);
         AllVacancies.push(VacancyObj);
-        DisplayVacancies();
     }
 
 //Display All vacancies

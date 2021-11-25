@@ -18,29 +18,36 @@ import * as SchedulingInterviews from "./SchedulingInterviews"
 //8.SelectedApplicant
 //9.Report
 
-let Choice:number=9;
+let Choice:number=1;
 
 switch (Choice) {
     case 1:
-        vacancies.AddVacancy(5,"Android Devlopment",2021,"B.E.",1,15,400000,true);       
+        vacancies.AddVacancy(5,"Android Devlopment",2021,"B.E.",1,15,400000,true); 
+        vacancies.DisplayVacancies();        
         break;
     case 2:
         vacancies.DisplayVacancies();        
         break;
     case 3:
-        Applicants.AddApplicant(108,"Sumit","Sumit@gmail.com",9989898989,2018,"B.E.","Android Devlopment",1,3,false);    
+        vacancies.AddVacancy(5,"Android Devlopment",2021,"B.E.",1,15,400000,true);       
+        Applicants.AddApplicant(108,"Sumit","Sumit@gmail.com",9989898989,2018,"B.E.","Android Devlopment",1,5,false);    
+        Applicants.DisplayApplicants();        
         break;
     case 4:
         Applicants.DisplayApplicants();        
         break;
     case 5:
-        SchedulingInterviews.AddScheduleInterview(1006,118,5,108,"2019-01-16 1:00 PM");      
+        vacancies.AddVacancy(5,"Android Devlopment",2021,"B.E.",1,15,400000,true);       
+        Applicants.AddApplicant(108,"Sumit","Sumit@gmail.com",9989898989,2018,"B.E.","Android Devlopment",1,5,false);
+        SchedulingInterviews.AddScheduleInterview(1006,118,5,108,"2019-01-16 1:00 PM");
+        SchedulingInterviews.DisplayScheduleInterviews();        
         break;
     case 6:
         SchedulingInterviews.DisplayScheduleInterviews();        
         break;
     case 7:
-        SchedulingInterviews.SelectionProcess();      
+        SchedulingInterviews.SelectionProcess();  
+        Applicants.DisplayApplicants();        
         break;
     case 8:
         SchedulingInterviews.SelectionProcess();      

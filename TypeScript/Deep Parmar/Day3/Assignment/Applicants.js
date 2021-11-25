@@ -26,16 +26,19 @@ exports.AllApplicants = [
     { "ApplicantId": 105, "ApplicantName": "Gita", "EmailAddress": "Gita@gmail.com", "PhoneNumber": 8689898989, "PassoutYear": 2021, "Qualification": "B.E.", "Skills": ".NET", "Experience": 2, "AppliedVacancyId": 1, "IsSelected": false }
 ];
 function CheckAppliedVacancyValid(Id) {
+    var status;
     vacancies.AllVacancies.filter(function (Vacancy, index, array) {
         if (Vacancy.ID == Id) {
-            return true;
+            status = true;
         }
     });
-    return false;
+    return status;
 }
 exports.CheckAppliedVacancyValid = CheckAppliedVacancyValid;
+//Add Applicant
 function AddApplicant(ApplicantId, ApplicantName, EmailAddress, PhoneNumber, PassoutYear, Qualification, Skills, Experience, AppliedVacancyId, IsSelected) {
-    if (CheckAppliedVacancyValid(AppliedVacancyId)) {
+    var status = CheckAppliedVacancyValid(AppliedVacancyId);
+    if (status) {
         var ApplicantObj = new Applicants(ApplicantId, ApplicantName, EmailAddress, PhoneNumber, PassoutYear, Qualification, Skills, Experience, AppliedVacancyId, IsSelected);
         exports.AllApplicants.push(ApplicantObj);
     }
@@ -44,9 +47,10 @@ function AddApplicant(ApplicantId, ApplicantName, EmailAddress, PhoneNumber, Pas
     }
 }
 exports.AddApplicant = AddApplicant;
+//Display All Applicant
 function DisplayApplicants() {
     exports.AllApplicants.forEach(function (element) {
-        console.log(exports.AllApplicants);
+        console.log(element);
     });
 }
 exports.DisplayApplicants = DisplayApplicants;

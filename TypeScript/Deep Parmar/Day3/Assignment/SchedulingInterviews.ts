@@ -24,18 +24,19 @@ export let AllScheduleInterview:ScheduleInterview[]=[
     {"InterviewId":1002,"InterviewerId":113,"VacancyId":1,"ApplicantId":105,"DateAndTime":new Date("2019-01-16 10:30 AM")},
     {"InterviewId":1003,"InterviewerId":114,"VacancyId":3,"ApplicantId":102,"DateAndTime":new Date("2019-01-16 11:00 AM")},
     {"InterviewId":1004,"InterviewerId":115,"VacancyId":2,"ApplicantId":103,"DateAndTime":new Date("2019-01-16 11:30 AM")},
-    {"InterviewId":1005,"InterviewerId":116,"VacancyId":4,"ApplicantId":104,"DateAndTime":new Date("2019-01-16 12:30 AM")},
+    {"InterviewId":1005,"InterviewerId":116,"VacancyId":4,"ApplicantId":104,"DateAndTime":new Date("2019-01-16 12:30 PM")},
 ]
 
 export function CheckAppliedApplicantValid(ApplicantId:number):boolean
 {
+    let status:boolean;
     Applicants.AllApplicants.filter((Applicant,index,array) => {
         if(Applicant.ApplicantId==ApplicantId)
         {
-            return true;
+            status=true;
         }
     });
-    return false;
+    return status;
 }
 
 //Add Scheduling Interviews
@@ -45,6 +46,17 @@ export function AddScheduleInterview(InterviewId:number,InterviewerId:number,Vac
     {
         var InterviewObj=new ScheduleInterview(InterviewId,InterviewerId,VacancyId,ApplicantId,DateAndTime);
         AllScheduleInterview.push(InterviewObj);
+    }
+    else
+    {
+        if(! CheckAppliedApplicantValid(ApplicantId))
+        {
+            console.log("Please Enter Valid ApplicantId..");
+        }
+        else if(! Applicants.CheckAppliedVacancyValid(VacancyId))
+        {
+            console.log("Please Enter Valid VacancyId..")
+        }
     }
 }
 

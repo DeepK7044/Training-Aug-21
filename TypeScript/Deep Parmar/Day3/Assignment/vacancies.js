@@ -21,11 +21,13 @@ exports.AllVacancies = [
     { "ID": 3, "TechnologyName": "Node", "PassoutYearRequire": 2021, "QualificationRequired": "B.E.", "ExperienceRequired": 2.5, "TotalVacancies": 8, "YearlyPackage": 500000, "IsStatus": true },
     { "ID": 4, "TechnologyName": "Artificial Intelligence", "PassoutYearRequire": 2021, "QualificationRequired": "B.E.,M.E", "ExperienceRequired": 2, "TotalVacancies": 2, "YearlyPackage": 600000, "IsStatus": true },
 ];
+//Add vacancy
 function AddVacancy(Id, TechnologyName, PassoutYearRequire, QualificationRequired, ExperienceRequired, TotalVacancies, YearlyPackage, IsStatus) {
     var VacancyObj = new Vacancies(Id, TechnologyName, PassoutYearRequire, QualificationRequired, ExperienceRequired, TotalVacancies, YearlyPackage, IsStatus);
     exports.AllVacancies.push(VacancyObj);
 }
 exports.AddVacancy = AddVacancy;
+//Display All vacancies
 function DisplayVacancies() {
     exports.AllVacancies.forEach(function (element) {
         console.log(element);

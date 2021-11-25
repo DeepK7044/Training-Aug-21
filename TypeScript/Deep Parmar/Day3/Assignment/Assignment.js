@@ -27,12 +27,16 @@ switch (Choice) {
         vacancies.DisplayVacancies();
         break;
     case 3:
-        Applicants.AddApplicant(108, "Sumit", "Sumit@gmail.com", 9989898989, 2018, "B.E.", "Android Devlopment", 1, 3, false);
+        vacancies.AddVacancy(5, "Android Devlopment", 2021, "B.E.", 1, 15, 400000, true);
+        Applicants.AddApplicant(108, "Sumit", "Sumit@gmail.com", 9989898989, 2018, "B.E.", "Android Devlopment", 1, 5, false);
+        Applicants.DisplayApplicants();
         break;
     case 4:
         Applicants.DisplayApplicants();
         break;
     case 5:
+        vacancies.AddVacancy(5, "Android Devlopment", 2021, "B.E.", 1, 15, 400000, true);
+        Applicants.AddApplicant(108, "Sumit", "Sumit@gmail.com", 9989898989, 2018, "B.E.", "Android Devlopment", 1, 5, false);
         SchedulingInterviews.AddScheduleInterview(1006, 118, 5, 108, "2019-01-16 1:00 PM");
         SchedulingInterviews.DisplayScheduleInterviews();
         break;
@@ -41,6 +45,7 @@ switch (Choice) {
         break;
     case 7:
         SchedulingInterviews.SelectionProcess();
+        Applicants.DisplayApplicants();
         break;
     case 8:
         SchedulingInterviews.SelectionProcess();
