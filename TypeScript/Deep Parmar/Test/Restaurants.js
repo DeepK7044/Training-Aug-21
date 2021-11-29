@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-exports.Checkingrooms = exports.SearchRestaurant = exports.RestaurantData = exports.DiningRoomData = exports.TableData = exports.Restaurant = void 0;
+exports.CheckValidBooking = exports.Checkingrooms = exports.SearchRestaurant = exports.RestaurantData = exports.DiningRoomData = exports.TableData = exports.Restaurant = void 0;
 var Restaurant = /** @class */ (function () {
     function Restaurant(RestaurantId, RestaurantName, RestaurantAddress, DiningRoom, CountryId) {
         this.RestaurantId = RestaurantId;
@@ -60,3 +60,44 @@ function Checkingrooms(RestorentId) {
     });
 }
 exports.Checkingrooms = Checkingrooms;
+function BookTable(RestorentId, DinningRoomNo, TableId) {
+    exports.RestaurantData.filter(function (Restaurants, index, array) {
+        if (Restaurants.RestaurantId == RestorentId) {
+            Restaurants.DiningRoom.forEach(function (element) {
+                if (element.RoomId == DinningRoomNo) {
+                    element.Tables.forEach(function (element2) {
+                        if (element2.TableId == TableId) {
+                            if (element2.Isavailable) {
+                                element2.Isavailable = false;
+                                console.log("Thank You For Booking..");
+                                console.log("Token Is : ".concat(RestorentId).concat(DinningRoomNo).concat(TableId));
+                            }
+                            else {
+                                console.log("Please Select Available Table");
+                            }
+                        }
+                    });
+                }
+            });
+        }
+    });
+}
+function CheckValidBooking(BookingDat) {
+    var CurrentDateTime = new Date();
+    var Month = CurrentDateTime.getMonth() + 1;
+    var Day = CurrentDateTime.getDay();
+    var afterHours = CurrentDateTime.getHours();
+    var BookingDate = new Date(BookingDat);
+    if ((BookingDate.getMonth() - Month) >= 1) {
+        console.log("Please wait for some times");
+    }
+    else if ((BookingDate.getDay() == Day)) {
+        if ((BookingDate.getHours() - afterHours) < 6) {
+            console.log("You are Late For booking");
+        }
+        else {
+            BookTable(1, 1, 2);
+        }
+    }
+}
+exports.CheckValidBooking = CheckValidBooking;

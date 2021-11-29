@@ -13,10 +13,10 @@ export class TableBooking implements ITableBooking
     BookingDate:Date;
     RestaurantId:number;    
 
-    // constructor(BookingId:number,BookingDate:Date,RestaurantId:number) {
-    //     this.BookingId=BookingId;
-    //     this.BookingDate=BookingDate;
-    //     this.RestaurantId=RestaurantId;
-    // }
+    constructor(BookingId:number,BookingDate:Date,RestaurantId:number) {
+        this.BookingId=BookingId;
+        this.BookingDate=BookingDate;
+        this.RestaurantId=RestaurantId;
+    }
 }
 

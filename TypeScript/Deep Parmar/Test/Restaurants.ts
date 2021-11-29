@@ -90,17 +90,24 @@ function BookTable(RestorentId:number,DinningRoomNo:number,TableId:number)
     RestaurantData.filter((Restaurants,index,array)=>{
         if (Restaurants.RestaurantId==RestorentId) {
             Restaurants.DiningRoom.forEach(element => {
-                element.Tables.forEach(element2 => {
-                    if(element2.Isavailable)
-                    {
-                        element2.Isavailable=false;
-                        console.log("Thank You For Booking..");
-                    }
-                    else
-                    {
-                        console.log("Please Select Available Table");
-                    }
-                });
+                if(element.RoomId==DinningRoomNo)
+                {
+                    element.Tables.forEach(element2 => {
+                        if(element2.TableId==TableId)
+                        {
+                            if(element2.Isavailable)
+                            {
+                            element2.Isavailable=false;
+                            console.log("Thank You For Booking..");
+                            console.log(`Token Is : ${RestorentId}${DinningRoomNo}${TableId}`)
+                            }
+                            else
+                            {
+                            console.log("Please Select Available Table");
+                            }
+                        }                        
+                    });
+                }                
             });
         }
     })
@@ -108,7 +115,7 @@ function BookTable(RestorentId:number,DinningRoomNo:number,TableId:number)
 
 
 
-export function CheckValidBooking(BookingDat:string):number
+export function CheckValidBooking(BookingDat:string)
 {
     let CurrentDateTime:Date=new Date();
     let Month=CurrentDateTime.getMonth()+1 ;
@@ -125,8 +132,7 @@ export function CheckValidBooking(BookingDat:string):number
         {
             console.log("You are Late For booking");
         }else{
-            BookTable(1,1,2);
-            return(112);
+            BookTable(1,1,2);            
         }
     }
 }
