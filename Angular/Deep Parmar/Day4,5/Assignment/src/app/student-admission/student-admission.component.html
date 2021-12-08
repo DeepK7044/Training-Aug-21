@@ -1,0 +1,391 @@
+<div class="container">
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+        <div class="row mt-3 border border-3" style="background-color: antiquewhite;">
+            <div class="row" formGroupName="studentName">
+                <h4 class="text-primary text-center">Student Details:</h4>
+                <h4 class="text-muted">FullName:</h4>
+                <div class="form-group col-4">
+                    <label for="FirstName">First Name:</label>
+                    <input type="text" class="form-control" formControlName="firstName">
+                    <div *ngIf="studentFirstName.invalid && studentFirstName.touched" class="text-danger alert alert-danger">First Name is Required</div>
+                </div>
+                <div class="form-group col-4">
+                    <label for="MiddleName">Middle Name:</label>
+                    <input type="text" class="form-control" formControlName="middleName">
+                    <div *ngIf="studentMiddleName.invalid && studentMiddleName.touched" class="text-danger alert alert-danger">Middle Name is Required</div>
+
+                </div>
+                <div class="form-group col-4">
+                    <label for="LastName">Last Name:</label>
+                    <input type="text" class="form-control" formControlName="lastName">
+                    <div *ngIf="studentLastName.invalid && studentLastName.touched" class="text-danger alert alert-danger">Last Name is Required</div>
+
+                </div>
+            </div>
+
+            <div class="form-group col-4 mt-4">
+                <label for="DOB">DOB :</label>
+                <input type="date" class="form-control" formControlName="dob">
+                <div *ngIf="dob.invalid && dob.touched" class="text-danger alert alert-danger">dob is Required</div>
+            </div>
+            <div class="form-group col-4 mt-4">
+                <label for="Place of Birth">Place of Birth :</label>
+                <input type="text" class="form-control" formControlName="placeofBirth">
+                <div *ngIf="placeofBirth.invalid && placeofBirth.touched" class="text-danger alert alert-danger">placeofBirth is Required</div>
+            </div>
+            <div class="form-group col-4 mt-4">
+                <label for="First_Language">First Language :</label>
+                <input type="text" class="form-control" formControlName="firstLanguage">
+                <div *ngIf="firstLanguage.invalid && firstLanguage.touched" class="text-danger alert alert-danger">firstLanguage is Required</div>
+            </div>
+
+            <div class="form-group row mt-4" formGroupName="address">
+                <h4 class="text-muted">Address :</h4>
+                <div class="form-group col-3 mt-4">
+                    <label class="form-label">City: </label>
+                    <input type="text" class="form-control mb-3" formControlName="city">
+                    <div *ngIf="city.invalid && city.touched" class="text-danger alert alert-danger">city is Required</div>
+                </div>
+                <div class="form-group col-3 mt-4">
+                    <label class="form-label">State: </label>
+                    <input type="text" class="form-control mb-3" formControlName="state">
+                    <div *ngIf="state.invalid && state.touched" class="text-danger alert alert-danger">state is Required</div>
+                </div>
+                <div class="form-group col-3 mt-4">
+                    <label class="form-label">Country: </label>
+                    <input type="text" class="form-control mb-3" formControlName="country">
+                    <div *ngIf="country.invalid && country.touched" class="text-danger alert alert-danger">country is Required</div>
+                </div>
+                <div class="form-group col-3 mt-4">
+                    <label class="form-label">Pincode: </label>
+                    <input type="text" class="form-control mb-3" formControlName="pin">
+                    <div *ngIf="pincode.invalid && pincode.touched" class="text-danger alert alert-danger">pincode is Required</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-2  border border-3" style="background-color: antiquewhite;" formGroupName="fatherInfo">
+            <div class="row" formGroupName="fullName">
+                <h4 class="text-primary text-center">Father Details:</h4>
+                <h4 class="text-muted">FullName:</h4>
+                <div class="form-group col-4">
+                    <label for="FirstName">First Name:</label>
+                    <input type="text" class="form-control" formControlName="firstName">
+                    <div *ngIf="fatherFirstName.invalid && fatherFirstName.touched" class="text-danger alert alert-danger">First Name is Required</div>
+                </div>
+                <div class="form-group col-4">
+                    <label for="MiddleName">Middle Name:</label>
+                    <input type="text" class="form-control" formControlName="middleName">
+                    <div *ngIf="fatherMiddleName.invalid && fatherMiddleName.touched" class="text-danger alert alert-danger">Middle Name is Required</div>
+
+                </div>
+                <div class="form-group col-4">
+                    <label for="LastName">Last Name:</label>
+                    <input type="text" class="form-control" formControlName="lastName">
+                    <div *ngIf="fatherLastName.invalid && fatherLastName.touched" class="text-danger alert alert-danger">Last Name is Required</div>
+
+                </div>
+            </div>
+
+            <div class="form-group col-4 mt-4">
+                <label for="Email">Email :</label>
+                <input type="email" class="form-control" formControlName="email">
+            </div>
+            <div class="form-group col-4 mt-4">
+                <label for="Qualification">Education Qualification:</label>
+                <input type="text" class="form-control" formControlName="educationQualification">
+            </div>
+            <div class="form-group col-4 mt-4">
+                <label for="Profession">Profession :</label>
+                <input type="text" class="form-control" formControlName="profession">
+                <div *ngIf="profession.invalid && profession.touched" class="text-danger alert alert-danger">profession is Required</div>
+            </div>
+            <div class="form-group col-6 my-4">
+                <label for="Designation">Designation :</label>
+                <input type="text" class="form-control" formControlName="designation">
+                <div *ngIf="designation.invalid && designation.touched" class="text-danger alert alert-danger">designation is Required</div>
+            </div>
+            <div class="form-group col-6 my-4">
+                <label for="Phone">Phone Number:</label>
+                <input type="number" class="form-control" formControlName="phone">
+                <div *ngIf="fatherPhone.touched && (fatherPhone.touched && !fatherPhone.dirty)" class="text-danger alert alert-danger">Phone Number is Required</div>
+                <div *ngIf="fatherPhone.invalid && (fatherPhone.dirty)" class="text-danger alert alert-danger">Enter Valid Phone number</div>
+            </div>
+        </div>
+
+        <div class="row mt-2 border border-3" style="background-color: antiquewhite;" formGroupName="motherInfo">
+            <div class="row" formGroupName="fullName">
+                <h4 class="text-primary text-center">Mother Details:</h4>
+                <h4 class="text-muted">FullName:</h4>
+                <div class="form-group col-4">
+                    <label for="FirstName">First Name:</label>
+                    <input type="text" class="form-control" formControlName="firstName">
+                    <div *ngIf="motherFirstName.invalid && motherFirstName.touched" class="text-danger alert alert-danger">First Name is Required</div>
+                </div>
+                <div class="form-group col-4">
+                    <label for="MiddleName">Middle Name:</label>
+                    <input type="text" class="form-control" formControlName="middleName">
+                    <div *ngIf="motherMiddleName.invalid && motherMiddleName.touched" class="text-danger alert alert-danger">Middle Name is Required</div>
+                </div>
+                <div class="form-group col-4">
+                    <label for="LastName">Last Name:</label>
+                    <input type="text" class="form-control" formControlName="lastName">
+                    <div *ngIf="motherLastName.invalid && motherLastName.touched" class="text-danger alert alert-danger">Last Name is Required</div>
+                </div>
+            </div>
+
+            <div class="form-group col-4 mt-4">
+                <label for="Email">Email :</label>
+                <input type="email" class="form-control" formControlName="email">
+            </div>
+            <div class="form-group col-4 mt-4">
+                <label for="Qualification">Education Qualification:</label>
+                <input type="text" class="form-control" formControlName="educationQualification">
+            </div>
+            <div class="form-group col-4 mt-4">
+                <label for="Profession">Profession :</label>
+                <input type="text" class="form-control" formControlName="profession">
+            </div>
+            <div class="form-group col-6 my-4">
+                <label for="Designation">Designation :</label>
+                <input type="text" class="form-control" formControlName="designation">
+            </div>
+            <div class="form-group col-6 my-4">
+                <label for="Phone">Phone Number:</label>
+                <input type="number" class="form-control" formControlName="phone">
+                <div *ngIf="motherPhone.touched && (motherPhone.touched && !motherPhone.dirty)" class="text-danger alert alert-danger">Phone Number is Required</div>
+                <div *ngIf="motherPhone.invalid && (motherPhone.dirty)" class="text-danger alert alert-danger">Enter Valid Phone number</div>
+            </div>
+        </div>
+
+        <div class="row border border-3 my-3" style="background-color: antiquewhite;">
+            <div class="row" formGroupName="emergencyContact">
+                <h4 class="text-muted">Emergency Contact:</h4>
+                <div class="col-12 text-center">
+                    <a class="btn btn-secondary mt-2 fs-4 w-50" (click)="addContact()">+Add Emergency Contact</a>
+                </div>
+                <div class="row">
+                    <div formArrayName="relation" class="col-6">
+                        <div *ngFor="let relation of relation.controls;let i=index">
+                            <div class="form-group my-2">
+                                <label for="Relation" id="Relation-{{i}}">Relation:</label>
+                                <input type="text" class="form-control" [formControlName]="i">
+                                <div *ngIf="relationData.invalid && relationData.touched" class="text-danger alert alert-danger">Enter Valid relation</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div formArrayName="number" class="col-6">
+                        <div *ngFor="let number of number.controls;let i=index">
+                            <div class="form-group my-2">
+                                <label for="Number" id="Number-{{i}}">Number:</label>
+                                <input type="number" class="form-control" [formControlName]="i">
+                                <div *ngIf="numberData.touched && (numberData.touched && !numberData.dirty)" class="text-danger alert alert-danger">Phone Number is Required</div>
+                                <div *ngIf="numberData.invalid && (numberData.dirty)" class="text-danger alert alert-danger">Enter Valid Phone number</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-6 mt-5">
+                <label for="Reference Details">Reference Details:</label>
+                <input type="text" class="form-control" formControlName="referenceDetails">
+            </div>
+            <div class="form-group col-6 mt-5">
+                <label for="Reference Through">Reference Through:</label>
+                <input type="text" class="form-control" formControlName="referenceThrough">
+            </div>
+            <div class="form-group col-12 my-3">
+                <label for="Address with TelNo">Address with TelNo:</label>
+                <input type="text" class="form-control" formControlName="arddressWithTelNo">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success fs-4 fw-bold w-100 mb-3" [disabled]="!studentForm.valid">Submit</button>
+    </form>
+</div>
+
+<div class="table-content border border-3" style="background-color: antiquewhite; overflow-x: scroll;">
+    <div class="bg-white">
+        <hr>
+        <h3 class="text-center text-primary mx-3">Student Table</h3>
+        <p class="text-success fs-4 mt-3 mx-3">CLick Below Button To Show StudentList Table</p>
+        <button (click)="showTable()" class="btn btn-primary m-3">Show Table</button>
+        <hr>
+    </div>
+
+
+    <table class="table bg-white table-hover table-bordered" *ngIf="tableStatus">
+        <thead class="table-dark">
+            <tr>
+                <th>StudentName</th>
+                <th>DOB</th>
+                <th>PlaceofBirth</th>
+                <th>FirstLanguage</th>
+                <th>Address</th>
+                <th>Father's Information</th>
+                <th>Mother's Information</th>
+                <th>Emergency Contact</th>
+                <th>Reference Details</th>
+                <th>Reference Through</th>
+                <th>Address with TelNo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of studentList">
+                <td>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>FirstName</th>
+                                <th>MiddleName</th>
+                                <th>LastName</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{student.studentName.firstName}}</td>
+                                <td>{{student.studentName.middleName}}</td>
+                                <td>{{student.studentName.lastName}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>{{student.dob}}</td>
+                <td>{{student.placeofBirth}}</td>
+                <td>{{student.firstLanguage}}</td>
+                <td>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Country</th>
+                                <th>pin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{student.address.city}}</td>
+                                <td>{{student.address.state}}</td>
+                                <td>{{student.address.country}}</td>
+                                <td>{{student.address.pin}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+
+                <td>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>FullName</th>
+                                <th>Email</th>
+                                <th>Education Qualification</th>
+                                <th>Profession</th>
+                                <th>Designation</th>
+                                <th>Phone</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>FirstName</th>
+                                                <th>MiddleName</th>
+                                                <th>LastName</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{student.fatherInfo.fullName.firstName}}</td>
+                                                <td>{{student.fatherInfo.fullName.middleName}}</td>
+                                                <td>{{student.fatherInfo.fullName.lastName}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>{{student.fatherInfo.email}}</td>
+                                <td>{{student.fatherInfo.educationQualification}}</td>
+                                <td>{{student.fatherInfo.profession}}</td>
+                                <td>{{student.fatherInfo.designation}}</td>
+                                <td>{{student.fatherInfo.phone}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+
+                <td>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>FullName</th>
+                                <th>Email</th>
+                                <th>Education Qualification</th>
+                                <th>Profession</th>
+                                <th>Designation</th>
+                                <th>Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>FirstName</th>
+                                                <th>MiddleName</th>
+                                                <th>LastName</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{student.motherInfo.fullName.firstName}}</td>
+                                                <td>{{student.motherInfo.fullName.middleName}}</td>
+                                                <td>{{student.motherInfo.fullName.lastName}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>{{student.motherInfo.email}}</td>
+                                <td>{{student.motherInfo.educationQualification}}</td>
+                                <td>{{student.motherInfo.profession}}</td>
+                                <td>{{student.motherInfo.designation}}</td>
+                                <td>{{student.motherInfo.phone}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+
+                <td>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="fw-bold">Relation</td>
+                                <ng-container *ngFor="let relation of student.emergencyContact.relation">
+                                    <td>
+                                        {{relation}}
+                                    </td>
+                                </ng-container>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Number</td>
+                                <ng-container *ngFor="let number of student.emergencyContact.number">
+                                    <td>
+                                        {{number}}
+                                    </td>
+                                </ng-container>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+
+                <td>{{student.referenceDetails}}</td>
+                <td>{{student.referenceThrough}}</td>
+                <td>{{student.arddressWithTelNo}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,8 @@
+<div class="form-group w-50">
+    <h1>Name Editor</h1>
+    <label for="Name">Enter Name</label>
+    <input type="text" class="form-control" [formControl]="name">
+    <p>{{name.value}}</p>
+
+    <button class="btn btn-primary" (click)="updateName()">Update Name</button>
+</div>
