@@ -1,0 +1,49 @@
+<h2 class="text-muted text-center">
+    Day-3 Assignment</h2>
+
+<div class="border border-5 p-3 bg-white my-5">
+    <p class="text-muted fs-4">Please Click On Below Button To Show The Students Table</p>
+    <button class="btn btn-primary" (click)="Toggle()">Show Table</button>
+    <button class="btn btn-success mx-3" (click)="Active()">Show Active Student</button>
+    <button class="btn btn-info mx-3" (click)="InActive()">Show InActive Student</button>
+</div>
+
+
+<table class="table table-bordered  bg-white table-hover mb-3" *ngIf="ShowTable">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Average</th>
+            <th>grade</th>
+            <th>Active</th>
+        </tr>
+
+        <!-- Other Way: -->
+        <!-- <tr *ngFor="let column of Columns">
+            <th>{{column.ID}}</th>
+            <th>{{column.Name}}</th>
+            <th>{{column.Age}}</th>
+            <th>{{column.Average}}</th>
+            <th>{{column.grade}}</th>
+            <th>{{column.Active}}</th>
+        </tr> -->
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of Students" [ngSwitch]="student.grade">
+            <ng-container *ngIf="ActiveStatus ? student.Active : !student.Active">
+                <td>{{student.ID}}</td>
+                <td>{{student.Name}}</td>
+                <td>{{student.Age}}</td>
+                <td>{{student.Average}}</td>
+                <td *ngSwitchCase="'A'" [ngStyle]="{backgroundColor:'green',color:'white'}">{{student.grade}}</td>
+                <td *ngSwitchCase="'B'" [ngStyle]="{backgroundColor:'blue',color:'white'}">{{student.grade}}</td>
+                <td *ngSwitchCase="'C'" [ngStyle]="{backgroundColor:'aqua'}">{{student.grade}}</td>
+                <td *ngSwitchCase="'D'" [ngStyle]="{backgroundColor:'yellow'}">{{student.grade}}</td>
+                <td *ngSwitchCase="'F'" [ngStyle]="{backgroundColor:'red',color:'white'}">{{student.grade}}</td>
+                <td>{{student.Active}}</td>
+            </ng-container>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,64 @@
+<h4 class="text-muted mt-5">ngModel</h4>
+<label for="name" class="form-label text-muted">Enter Name</label>
+<input type="text" class="form-control" [(ngModel)]="Name">
+<p class="text-success">{{Name}}</p>
+
+<h4 class="text-muted mt-5">ngStyle</h4>
+<p [ngStyle]="{color:'red'}">ngStyle:{{Name}}</p>
+
+<h4 class="text-muted mt-5">ngClass</h4>
+<p [ngClass]="'text-primary'">ngClass:{{Name}}</p>
+
+<h4 class="text-muted mt-5">ngFor</h4>
+<table class="table table-bordered table-hover bg-white">
+    <thead class="bg-dark text-white">
+        <th>name</th>
+        <th>age</th>
+        <th>country</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let Person of people">
+            <td>{{Person.name}}</td>
+            <td>{{Person.age}}</td>
+            <td>{{Person.country}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4 class="text-muted mt-5">ngIf</h4>
+<p>List of People Age grater Than 30</p>
+<table class="table table-bordered table-hover bg-white">
+    <thead class="bg-dark text-white">
+        <th>name</th>
+        <th>age</th>
+        <th>country</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let Person of people">
+            <ng-container *ngIf="Person.age>30">
+                <td>{{Person.name}}</td>
+                <td>{{Person.age}}</td>
+                <td>{{Person.country}}</td>
+            </ng-container>
+        </tr>
+    </tbody>
+</table>
+
+<h4 class="text-muted mt-5">ngSwitch</h4>
+<div class="card w-25 my-3">
+    <div class="card-header">
+        ngSwitch Example
+    </div>
+    <div class="card-body">
+        Input string : <input type='text' [(ngModel)]="num" />
+
+        <div [ngSwitch]="num">
+            <div *ngSwitchCase="'1'">One</div>
+            <div *ngSwitchCase="'2'">Two</div>
+            <div *ngSwitchCase="'3'">Three</div>
+            <div *ngSwitchCase="'4'">Four</div>
+            <div *ngSwitchCase="'5'">Five</div>
+            <div *ngSwitchDefault>This is Default</div>
+        </div>
+    </div>
+</div>
