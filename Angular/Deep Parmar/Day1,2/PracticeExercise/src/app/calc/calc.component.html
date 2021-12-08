@@ -1,0 +1,19 @@
+<!-- 4. Create calc component Two text boxes with label. Do the operation addition,multiple and substraction. 
+Use two way binding and event binding. -->
+<hr>
+<h2 class="text-primary">Calculator : </h2>
+<div class="border border-dark my-3 ms-5 p-3 w-25">
+    <label class="form-label fs-4 text-muted">Enter Number 1: </label>
+    <input type="number" class="form-control" [(ngModel)]="number1">
+    <br>
+    <label class="form-label fs-4 text-muted">Enter Number 2: </label>
+    <input type="number" class="form-control" [(ngModel)]="number2">
+    <br>
+    <button (click)="Addition()" class="btn btn-primary m-2">Addition</button>
+    <button (click)="Multiplication()" class="btn btn-warning m-2">multiplication</button>
+    <button (click)="Substraction()" class="btn btn-info m-2">Substraction</button>
+    <button (click)="Division()" class="btn btn-success m-2">Division</button>
+    <hr>
+    <label for="" class="form-label fs-4 text-muted">Result is: </label>
+    <input [(ngModel)]="Result" class="form-control fs-4 text-success" disabled fs-4 text-muted>
+</div>

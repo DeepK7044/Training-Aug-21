@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: lightskyblue;">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div id="navbarContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-5">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link mx-3 fs-4">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link mx-3 fs-4">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link mx-3 fs-4">ContactUs</a>
+                    </li>
+                </ul>
+            </div>
+            <button class="btn btn-primary mx-2 ms-auto" data-bs-toggle="modal" data-bs-target="#Login">Login</button>
+            <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#SignUp">SignUp</button>
+        </div>
+    </nav>
+
+    <div id="maincontainer" class="row" style="background-color: rgb(248, 233, 208); width: 100vw;">
+        <div id=" sidebar " class="col-2 " style="background-color: darkgrey;height: 100vh; overflow: scroll; ">
+            <app-leftbar></app-leftbar>
+        </div>
+
+        <div id="Content " class="col-10 mt-5 ">
+            <div class="container ">
+                <div class="row row-cols-2 ">
+                    <div class="col ">
+                        <app-rectangle></app-rectangle>
+                    </div>
+                    <div class="col ">
+                        <app-circle></app-circle>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="Login" data-bs-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-primary">Login</h3>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <app-login></app-login>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="SignUp" data-bs-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-primary">SignUp</h3>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <app-signup></app-signup>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

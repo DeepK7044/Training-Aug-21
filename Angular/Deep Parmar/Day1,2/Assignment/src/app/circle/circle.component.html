@@ -1,0 +1,11 @@
+<!-- 3. Create a circle component which computes area of Circle -->
+<h3 class="text-primary">Circle Area :</h3>
+<div class="border border-5 p-3 mx-5 my-3">
+    <label for="Radius" class="form-label text-muted fs-5">Enter Redius Of Circle :</label>
+    <input type="number" name="Radius" [(ngModel)]="Radius" class="form-control">
+    <br>
+    <button (click)="CircleArea()" class="btn btn-primary">Find Area</button>
+    <hr>
+    <label for="Area" class="form-label text-muted fs-5">Result Is :</label>
+    <input type="number" name="area" class="form-control text-success fs-4" [value]="Area" disabled>
+</div>
