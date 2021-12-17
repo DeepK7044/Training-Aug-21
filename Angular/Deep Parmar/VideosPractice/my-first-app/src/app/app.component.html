@@ -1,0 +1,43 @@
+<!-- <input type="text" [(ngModel)]="Name">
+<h2>Hii This is {{Name}}</h2>
+<app-servers></app-servers> -->
+<div class="container">
+    <div class="row">
+        <div>
+            <h2>This Is My First Angular App</h2>
+            <hr>
+            <h3>Hii Myself Deep Parmar</h3>
+            <app-servers></app-servers>
+            <!-- <div app-servers></div> -->
+            <!-- <div class="app-servers"></div> -->
+            <!-- id ,sudocode Not Used -->
+
+            <br>
+            <hr>
+            <h2>Assignment 1</h2>
+            <br>
+            <hr><br>
+            <label for="Username">Username : </label>
+            <input type="text" [(ngModel)]="Username">
+            <p>{{Username}}</p>
+
+            <button [disabled]="Username==''" class="btn btn-primary" (click)="Username=''">Reset User</button>
+            <br>
+
+            <!-- <app-movie></app-movie> -->
+
+            <br>
+            <hr>
+            <h2>Assignment 2</h2>
+            <br>
+            <hr><br>
+
+            <button class="btn btn-primary" (click)="Toggle()">Display Details</button>
+            <p *ngIf="IsDisplay">Secrate Password='Parmar'</p>
+
+            <div *ngFor="let logitem of log; let i = index" [ngStyle]="{'background-color':i>=4 ? 'blue':'transperent'}" [ngClass]="{'White':i >= 4}">{{logitem}}</div>
+
+
+        </div>
+    </div>
+</div>
