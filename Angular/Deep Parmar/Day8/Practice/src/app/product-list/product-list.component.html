@@ -1,0 +1,18 @@
+<table class="table table-bordered mt-5 bg-white shadow">
+    <thead>
+        <th>Id</th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Status</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let Product of ProductData; let i=index;">
+            <td>{{Product.ProductId}}</td>
+            <td>{{Product.ProductName}}</td>
+            <td>{{Product.ProductPrice}}</td>
+            <td>{{Product.ProductQuantity}}</td>
+            <td>{{Product.ProductStatus}}</td>
+        </tr>
+    </tbody>
+</table>

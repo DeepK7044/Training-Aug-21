@@ -1,0 +1,19 @@
+<form class="border shadow p-3  bg-white">
+    <div class="form-group">
+        <label class="form-label">Product Id:</label>
+        <input type="number" class="form-control" #productId>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Product Name:</label>
+        <input type="text" class="form-control" #productName>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Product Price:</label>
+        <input type="number" class="form-control" #productPrice>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Product Quantity:</label>
+        <input type="text" class="form-control" #productQuantity>
+    </div>
+    <button class="btn btn-primary mt-2" (click)='AddProduct(productId.value,productName.value,productPrice.value,productQuantity.value)'>Add Product</button>
+</form>
