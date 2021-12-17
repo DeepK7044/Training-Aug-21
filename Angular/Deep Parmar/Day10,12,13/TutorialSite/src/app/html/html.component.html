@@ -1,0 +1,41 @@
+<div class="d-flex">
+    <div id="sidebar" class="bg-light p-5 w-25 h-auto">
+        <!-- Example single danger button -->
+        <div class="dropdown">
+            <button type="button" class="dropdown-toggle p-3 fs-4 text-bolder" data-bs-toggle="dropdown" aria-expanded="false">
+             Day-1
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item fs-5" routerLink="/HTML/Day1/Practice1">Practice Exercise1</a></li>
+                <li><a class="dropdown-item fs-5" routerLink="/HTML/Day1/Practice2">Practice Exercise2</a></li>
+                <li><a class="dropdown-item fs-5" routerLink="/HTML/Day1/Practice3">Practice Exercise3</a></li>
+                <li><a class="dropdown-item fs-5" routerLink="/HTML/Day1/Practice4">Practice Exercise4</a></li>
+                <li><a class="dropdown-item fs-5" routerLink="/HTML/Day1/Practice5">Practice Exercise5</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item fs-5" routerLink="/HTML/Day1/Assignment">Assignment</a></li>
+            </ul>
+        </div>
+        <!-- Day-2 -->
+        <div class="dropdown mt-5">
+            <button type="button" class="dropdown-toggle p-3 fs-4 text-bolder" data-bs-toggle="dropdown" aria-expanded="false">
+                Day-2
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item fs-5" routerLink="/HTML/Day2/Practice1">Practice Exercise1</a></li>
+                <li><a class="dropdown-item fs-5" routerLink="/HTML/Day2/Practice2">Practice Exercise2</a></li>
+                <li><a class="dropdown-item fs-5" routerLink="/HTML/Day2/Practice3">Practice Exercise3</a></li>
+                <li><a class="dropdown-item fs-5" routerLink="/HTML/Day2/Practice4">Practice Exercise4</a></li>
+                <li><a class="dropdown-item fs-5" routerLink="/HTML/Day2/Practice5">Practice Exercise5</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" routerLink="/HTML/Day2/Assignment">Assignment</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="Content" class=" m-5 p-2 w-75 h-100">
+        <router-outlet></router-outlet>
+    </div>
+</div>
