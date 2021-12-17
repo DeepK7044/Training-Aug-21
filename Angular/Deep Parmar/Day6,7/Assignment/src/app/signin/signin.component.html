@@ -1,0 +1,100 @@
+<h2 class="text-muted mb-3">Assignment Template-Driven Form</h2>
+<button type="button" class="btn btn-primary  mx-2 p-2 " (click)="signinFormShow()">Login</button>
+<button type="button" class="btn btn-primary  mx-2 p-2 " (click)="signupFormShow()">Register</button>
+
+<form #signinForm="ngForm" *ngIf="loginForm" class="w-50 border shadow mt-5  p-3" (ngSubmit)="submit(signinForm)">
+
+    <div class="form-group">
+        <label for="email">Email Address :</label>
+        <input type="email" required class="form-control mt-3" #email="ngModel" name="email" ngModel>
+        <div class="alert alert-danger" *ngIf=" email.invalid && email.touched && email.errors.required">Email Address is Required.</div>
+    </div>
+
+    <div class="form-group">
+        <label for="Password">Password :</label>
+        <input type="password" required minlength="5" #password="ngModel" class="form-control mt-3" name="Password" ngModel>
+        <div class="alert alert-danger" *ngIf="password.invalid && password.touched">
+            <div *ngIf="password.errors.required">Password is Required.</div>
+            <div *ngIf="password.errors.minlength">Password is Required min {{password.errors.minlength.requiredLength}} lenght.</div>
+        </div>
+    </div>
+
+    <button type="submit" [disabled]="!signinForm.valid" class="btn btn-primary mt-3" (click)="LoginUser(email.value,password.value)">Signin</button>
+
+    <p *ngIf="Auhenticate" class="alert alert-success"> Thank You For Login </p>
+
+</form>
+
+<form #signupForm="ngForm" *ngIf="registerForm" class="w-50 border shadow  p-3 mt-5" (ngSubmit)="RegisterFormSubmit(signupForm)">
+
+    <div class="form-group">
+        <label for="firstName">First Name :</label>
+        <input type="text" required minlength="3" pattern="^[a-zA-Z]*$" #firstName="ngModel" class="form-control mt-3" name="firstName" ngModel>
+        <div class="alert alert-danger" *ngIf="firstName.invalid && firstName.touched">
+            <div *ngIf="firstName.errors.required">FirstName is Required.</div>
+            <div *ngIf="firstName.errors.minlength">FirstName is Required min {{firstName.errors.minlength.requiredLength}} lenght.</div>
+            <div *ngIf="firstName.errors.pattern">FirstName is not match Pattern</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">Last Name :</label>
+        <input type="text" required minlength="3" pattern="^[a-zA-Z]*$" #lastName="ngModel" class="form-control mt-3" name="lastName" ngModel>
+        <div class="alert alert-danger" *ngIf="lastName.invalid && lastName.touched">
+            <div *ngIf="lastName.errors.required">LastName is Required.</div>
+            <div *ngIf="lastName.errors.minlength">LastName is Required min {{lastName.errors.minlength.requiredLength}} lenght.</div>
+            <div *ngIf="lastName.errors.pattern">LastName is not match Pattern</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email Address :</label>
+        <input type="email" required class="form-control mt-3" #email="ngModel" name="email" ngModel>
+        <div class="alert alert-danger" *ngIf=" email.invalid && email.touched && email.errors.required">Email Address is Required.</div>
+    </div>
+
+    <label class="form-label mt-2">Gender:</label>
+    <div class="form-check">
+        <input type="radio" name="Male" value="Male" id="Gender" class="form-check-input" ngModel>
+        <label for="form-check-label" for="Male">Male</label>
+    </div>
+    <div class="form-check">
+        <input type="radio" name="Female" id="Gender" value="Female" class="form-check-input" ngModel>
+        <label for="form-check-label" for="Female">Female</label>
+    </div>
+    <div class="form-check">
+        <input type="radio" name="Others" id="Gender" value="Others" class="form-check-input" ngModel>
+        <label for="form-check-label" for="Others">Others</label>
+    </div>
+
+
+    <label for="country" class="form-label">country </label>
+    <select class="form-select" name="country" id="country" #country="ngModel" ngModel>
+      <option selected="" value=""></option>
+      <option [ngValue]="c.name" *ngFor="let c of countryList">
+        {{c.name}}
+      </option>
+    </select>
+
+    <div class="form-group">
+        <label for="Password">Password :</label>
+        <input type="password" required minlength="5" #password="ngModel" class="form-control mt-3" name="Password" ngModel>
+        <div class="alert alert-danger" *ngIf="password.invalid && password.touched">
+            <div *ngIf="password.errors.required">Password is Required.</div>
+            <div *ngIf="password.errors.minlength">Password is Required min {{password.errors.minlength.requiredLength}} lenght.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Password"> Confirm Password :</label>
+        <input type="password" class="form-control mt-3" required minlength="5" #confirmPassword="ngModel" name="ConfirmPassword" ngModel>
+        <div class="alert alert-danger" *ngIf="confirmPassword.invalid && confirmPassword.touched">
+            <div *ngIf="confirmPassword.errors.required">ConfirmPassword is Required.</div>
+            <div *ngIf="confirmPassword.errors.minlength">ConfirmPassword is Required min {{confirmPassword.errors.minlength.requiredLength}} lenght.</div>
+        </div>
+        <div class="alert alert-danger" *ngIf="confirmPassword.value != password.value">Password & ConfirmPassword is not match.</div>
+    </div>
+
+    <button type="submit" [disabled]="!signupForm.valid" class="btn btn-primary mt-3">Signin</button>
+
+</form>

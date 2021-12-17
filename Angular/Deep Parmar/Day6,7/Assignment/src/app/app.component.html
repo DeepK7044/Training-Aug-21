@@ -1,0 +1,9 @@
+<div class="container border border-5 mt-5 p-5 w-50" style="background-color: antiquewhite;">
+    <app-signin></app-signin>
+
+    <h3 class="text-muted text-center">Assignment Dynamic forms</h3>
+    <div>
+        <h2>Job Application for Heroes</h2>
+        <app-dynamic-form [questions]="questions$ | async"></app-dynamic-form>
+    </div>
+</div>
