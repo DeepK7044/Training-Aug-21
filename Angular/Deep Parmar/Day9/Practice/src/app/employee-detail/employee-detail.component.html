@@ -1,0 +1,14 @@
+<table class="table table-border bg-white">
+    <thead>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Department</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let Employee of EmployeeList">
+            <td>{{Employee.Name}}</td>
+            <td>{{Employee.Age}}</td>
+            <td>{{Employee.Department}}</td>
+        </tr>
+    </tbody>
+</table>

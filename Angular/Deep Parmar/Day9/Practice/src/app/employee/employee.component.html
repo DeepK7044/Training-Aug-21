@@ -1,0 +1,16 @@
+<div class="my-3 p-3" formGroupName="employeeName">
+    <h4 class="text-primary text-center">Employee Details:</h4>
+    <div class="form-group mt-3">
+        <label for="FirstName">Name:</label>
+        <input type="text" class="form-control" #Name>
+    </div>
+    <div class="form-group mt-3">
+        <label for="Age">Age:</label>
+        <input type="text" class="form-control" #Age>
+    </div>
+    <div class="form-group mt-3">
+        <label for="Department">Department:</label>
+        <input type="text" class="form-control" #Department>
+    </div>
+    <button class="btn btn-primary mt-3" (click)="Add(Name.value,Age.value,Department.value)">+ Add</button>
+</div>
