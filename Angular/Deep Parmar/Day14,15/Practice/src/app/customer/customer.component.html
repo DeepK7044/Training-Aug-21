@@ -1,0 +1,48 @@
+<div class="container">
+
+    <h2 class="m-5 text-primary text-center">Practice Exercise</h2>
+    <form class="border shadow w-75 m-5 p-5">
+        <h3 class="text-muted text-center">Customer Form:</h3>
+        <div class="row">
+            <div class="form-group col-12 m-2">
+                <label for="CustomerName">CustomerName:</label>
+                <input type="text" class="form-control" #Name>
+            </div>
+            <div class="form-group col-12 m-2">
+                <label for="Age">Age:</label>
+                <input type="number" class="form-control" #Age>
+            </div>
+            <div class="form-group col-12 m-2">
+                <label for="PhoneNumber">PhoneNumber:</label>
+                <input type="number" class="form-control" #PhoneNumber>
+            </div>
+            <button class="btn btn-primary ms-3 text-center mt-5" (click)="Add(Name.value,Age.value,PhoneNumber.value)">+Add Customer</button>
+        </div>
+    </form>
+
+
+    <button class="btn btn-primary m-5" (click)="Show()">Show Customer</button>
+    <table class="table mt-3 Shadow table-bordered ms-5" *ngIf="tableshow">
+        <thead class="text-center">
+            <th>CustomerId</th>
+            <th>CustomerName</th>
+            <th>Age</th>
+            <th>PhoneNumber</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let customer of Customer;" class="text-center">
+                <td>{{customer.customerId}}</td>
+                <td>{{customer.customerName}}</td>
+                <td>{{customer.age}}</td>
+                <td>{{customer.phoneNumber}}</td>
+                <td><button class="btn btn-danger" (click)="delete(customer.customerId)" roterLink="/customer">Remove</button></td>
+                <td><button class="btn btn-primary" (click)="edit(customer.customerId)">Edit</button></td>
+            </tr>
+            <router-outlet></router-outlet>
+        </tbody>
+    </table>
+
+</div>

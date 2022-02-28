@@ -9,7 +9,7 @@
 // Give a token number to the customer as an acknowledgement of booking.
 exports.__esModule = true;
 var Restaurants = require("./Restaurants");
-var Choice = 2;
+var Choice = 3;
 switch (Choice) {
     // 1.Provide the list of restaurants in the country so that the user can choose accordingly.
     case 1:
@@ -20,8 +20,7 @@ switch (Choice) {
         Restaurants.Checkingrooms(1);
         break;
     case 3:
-        //3. Mention the number of guests that can be accommodated on the particular table.
-        // SearchEmpByYearAndCity(2020,3);
+        Restaurants.CheckValidBooking('2021-01-16');
         break;
     default:
         break;

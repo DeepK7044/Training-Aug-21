@@ -1,0 +1,21 @@
+<form class="m-5 p-5 w-25 border shadow">
+    <div class="row">
+        <div class="form-group col-12 m-2">
+            <label for="CustomerName">CustomerId:</label>
+            <input type="text" class="form-control" name="Id" disabled [(ngModel)]="CusId">
+        </div>
+        <div class="form-group col-12 m-2">
+            <label for="CustomerName">CustomerName:</label>
+            <input type="text" class="form-control" name="CusName" [(ngModel)]="CustomerName">
+        </div>
+        <div class="form-group col-12 m-2">
+            <label for="Age">Age:</label>
+            <input type="number" class="form-control" name="CustomerAge" [(ngModel)]="CustomerAge">
+        </div>
+        <div class="form-group col-12 m-2">
+            <label for="PhoneNumber">PhoneNumber:</label>
+            <input type="number" class="form-control" name="PhoneNumber" [(ngModel)]="PhoneNumber">
+        </div>
+        <button class="btn btn-primary w-25 mt-3" routerLink="/customer" (click)="edit()">Edit</button>
+    </div>
+</form>

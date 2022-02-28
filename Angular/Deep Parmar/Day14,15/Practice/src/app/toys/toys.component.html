@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+        <th>toysId</th>
+        <th>toyName</th>
+        <th>unitPrice</th>
+        <th>toyQuantity</th>
+        <th>availabilityStatus</th>
+        <th>plantId</th>
+    </thead>
+    <tbody *ngFor="let Toy of Toys;">
+        <tr>
+            <td>{{Toy.toysId}}</td>
+            <td>{{Toy.toyName}}</td>
+            <td>{{Toy.unitPrice}}</td>
+            <td>{{Toy.toyQuantity}}</td>
+            <td>{{Toy.availabilityStatus}}</td>
+            <td>{{Toy.plantId}}</td>
+        </tr>
+    </tbody>
+</table>
